@@ -1,0 +1,20 @@
+[
+  {
+    "contentTitle": "Conflict Resolution",
+    "path": "Mentoring Path",
+    "viewCount": 100,
+    "uploadedBy": "Jane Doe",
+    "provider": "Content Provider",
+    "type": "Content Type",
+    "actions": "Actions"
+  },
+  {
+    "contentTitle": "How to stay motivated",
+    "path": "Motivation Path",
+    "viewCount": 80,
+    "uploadedBy": "John Smith",
+    "provider": "Content Provider",
+    "type": "Content Type",
+    "actions": "Actions"
+  }
+]

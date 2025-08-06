@@ -1,12 +1,17 @@
 <script lang="ts">
-	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
+  import Navigation from '$lib/components/Navigation.svelte';
+  import { Toaster } from 'svelte-sonner';
+  import '../app.css';
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<div class="bg-pack-neutral-50 min-h-screen">
+  <Navigation />
 
-{@render children?.()}
+  <main class="container py-8">
+    <slot />
+  </main>
+  <Toaster richColors />
+</div>
+
+<style>
+</style>
