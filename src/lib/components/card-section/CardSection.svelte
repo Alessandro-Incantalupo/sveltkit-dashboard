@@ -50,10 +50,4 @@
       ]}
     />
   </div>
-  <div class="mt-8 border-t border-gray-200 pt-8">
-    <!-- Place your User Content Access table here -->
-    <!-- Example: -->
-    <h2 class="mb-4 text-2xl font-semibold">User Content Access</h2>
-    <!-- ...table code... -->
-  </div>
 </div>

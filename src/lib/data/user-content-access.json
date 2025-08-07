@@ -1,0 +1,16 @@
+[
+  {
+    "user": "Jane Doe",
+    "accessedContent": "Conflict Resolution",
+    "openedOn": "2023-10-01 11:55",
+    "closedOn": "2023-10-02 12:00",
+    "provider": "Pack"
+  },
+  {
+    "user": "John Smith",
+    "accessedContent": "How to stay motivated",
+    "openedOn": "2023-10-03 09:00",
+    "closedOn": "2023-10-04 10:00",
+    "provider": "Mentor"
+  }
+]

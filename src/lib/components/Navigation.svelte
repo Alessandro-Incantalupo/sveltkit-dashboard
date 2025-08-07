@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import * as Avatar from '$lib/components/ui/avatar/index.js';
   import Icon from '@iconify/svelte';
 
   const navItems = [
@@ -59,13 +60,12 @@
 
       <!-- User Avatar -->
       <div
-        class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-200"
+        class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-orange-500 bg-gray-200"
       >
-        <img
-          src="https://via.placeholder.com/32"
-          alt="User Avatar"
-          class="h-full w-full object-cover"
-        />
+        <Avatar.Root>
+          <Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+          <Avatar.Fallback>CN</Avatar.Fallback>
+        </Avatar.Root>
       </div>
     </div>
   </div>

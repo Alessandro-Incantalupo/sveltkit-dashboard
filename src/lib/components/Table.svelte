@@ -22,22 +22,18 @@
   <TableBody>
     {#each data as item}
       <TableRow class="hover:bg-gray-50">
-        <TableCell class="font-medium">{item.contentTitle}</TableCell>
-        <TableCell class="text-gray-600">{item.path}</TableCell>
-        <TableCell>{item.viewCount}</TableCell>
-        <TableCell>{item.uploadedBy}</TableCell>
+        {#each Object.entries(item) as [key, value]}
+          <TableCell class="text-gray-600">
+            {#if typeof value === 'string' || typeof value === 'number'}
+              {value}
+            {:else}
+              <!-- Handle non-primitive values if needed -->
+              <span class="text-gray-400">N/A</span>
+            {/if}
+          </TableCell>
+        {/each}
         <TableCell>
-          <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
-            {item.provider}
-          </span>
-        </TableCell>
-        <TableCell>
-          <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
-            {item.type}
-          </span>
-        </TableCell>
-        <TableCell>
-          <button class="hover:text-blue-700 hover:underline"> ... </button>
+          <button> ... </button>
         </TableCell>
       </TableRow>
     {/each}
