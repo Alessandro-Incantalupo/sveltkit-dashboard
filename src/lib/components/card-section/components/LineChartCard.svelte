@@ -10,6 +10,14 @@
   let uploadedData = [200, 300, 400, 350, 500, 600, 700, 650, 800, 900, 950, 1100];
   let usageData = [180, 250, 370, 320, 480, 700, 670, 600, 780, 850, 900, 1000];
 
+  const handleResize = () => {
+    if (chart) {
+      setTimeout(() => {
+        chart.resize();
+      }, 100);
+    }
+  };
+
   onMount(() => {
     Chart.Chart.register(...Chart.registerables);
     chart = new Chart.Chart(canvas, {
@@ -46,6 +54,11 @@
         }
       }
     });
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   });
 </script>
 
@@ -53,7 +66,7 @@
   <Card.Content class="w-full text-center">
     <h3 class="mb-2 text-sm font-semibold text-gray-700">Uploaded content vs Usage over time</h3>
     <div class="w-full">
-      <canvas bind:this={canvas} height="170"></canvas>
+      <canvas bind:this={canvas} height="200"></canvas>
     </div>
   </Card.Content>
 </Card.Root>

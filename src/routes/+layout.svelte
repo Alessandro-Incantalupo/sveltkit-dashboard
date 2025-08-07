@@ -14,7 +14,7 @@
 <div class="bg-pack-neutral-50 min-h-screen">
   <Navigation />
 
-  <main class="!container py-8">
+  <main class="mx-auto w-full max-w-[1400px] px-6 py-8 sm:px-8 lg:px-12 xl:px-16">
     <slot />
   </main>
 

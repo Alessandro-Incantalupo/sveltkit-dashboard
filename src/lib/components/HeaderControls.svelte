@@ -44,7 +44,7 @@
       <div class="flex-1">
         <Input
           type="text"
-          placeholder="Search resources..."
+          placeholder="Field"
           icon="iconamoon:search"
           bind:value={searchValue}
           class="w-full"
@@ -75,12 +75,7 @@
     <!-- Right: Search and Upload -->
     <div class="flex flex-shrink-0 items-center gap-3">
       <div class="w-80">
-        <Input
-          type="text"
-          placeholder="Search resources..."
-          icon="iconamoon:search"
-          bind:value={searchValue}
-        />
+        <Input type="text" placeholder="Field" icon="iconamoon:search" bind:value={searchValue} />
       </div>
       <Button onclick={handleUpload} class="bg-orange-500 whitespace-nowrap hover:bg-orange-600">
         Upload

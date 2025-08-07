@@ -35,17 +35,17 @@
   });
 </script>
 
-<Card.Root class="flex flex-col items-center justify-center px-12 py-4">
-  <Card.Content class="flex flex-col items-center space-y-6 text-center">
-    <div class="relative h-52 w-52">
-      <canvas bind:this={canvas} class="h-52 w-52"></canvas>
+<Card.Root class="flex min-h-[300px] flex-col items-center justify-center px-8 py-6">
+  <Card.Content class="flex flex-col items-center space-y-4 text-center">
+    <div class="relative h-40 w-40">
+      <canvas bind:this={canvas} class="h-40 w-40"></canvas>
       <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <span class="text-5xl font-bold text-blue-500">{percentage}%</span>
+        <span class="text-3xl font-bold text-blue-500">{percentage}%</span>
       </div>
     </div>
-    <div class="space-y-2">
+    <div class="space-y-1">
       <h3 class="text-lg font-medium text-gray-900">Active Users</h3>
-      <p class="text-base text-gray-500">Access Rate</p>
+      <p class="text-sm text-gray-500">Access Rate</p>
     </div>
   </Card.Content>
 </Card.Root>
