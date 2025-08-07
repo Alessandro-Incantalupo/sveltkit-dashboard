@@ -53,9 +53,11 @@
         <!-- Provider Badge -->
         <TableCell>
           <span
-            class="rounded-full px-2 py-1 text-xs font-medium text-white"
-            class:bg-orange-500={item.provider === 'Pack'}
-            class:bg-green-500={item.provider === 'Mentor'}
+            class="rounded-full border-2 px-2 py-1 text-xs font-medium"
+            class:border-orange-500={item.provider === 'Pack'}
+            class:border-green-500={item.provider === 'Mentor'}
+            class:text-orange-500={item.provider === 'Pack'}
+            class:text-green-500={item.provider === 'Mentor'}
           >
             {item.provider}
           </span>

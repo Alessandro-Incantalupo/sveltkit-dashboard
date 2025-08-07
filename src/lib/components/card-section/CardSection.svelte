@@ -13,16 +13,16 @@
   let uniqueAccesses = $state({ count: 395, total: 582, change: 3 });
 </script>
 
-<div class="flex flex-col gap-y-8">
-  <div class="flex w-full gap-x-8">
-    <div class=" flex flex-1 flex-col gap-y-8">
-      <div class="flex justify-between gap-x-8">
+<div class="flex flex-col gap-y-4 lg:gap-y-8">
+  <div class="flex w-full flex-col gap-4 lg:flex-row lg:gap-x-8">
+    <div class="flex flex-1 flex-col gap-y-4 lg:gap-y-8">
+      <div class="flex flex-col gap-4 sm:flex-row sm:justify-between lg:gap-x-8">
         <ActiveUsersCard percentage={activeUsersData.percentage} />
         <ResourcesUtilizedCard percentage={resourcesData.percentage} />
       </div>
       <ResourcesByCategoryCard />
     </div>
-    <div class="flex flex-1 flex-col justify-between gap-y-8">
+    <div class="flex flex-1 flex-col justify-between gap-y-4 lg:gap-y-8">
       <StatsCard {uploadedResources} {completionRate} {uniqueAccesses} />
       <div>
         <LineChartCard />
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="flex justify-between gap-x-8">
+  <div class="flex flex-col gap-4 lg:flex-row lg:justify-between lg:gap-x-8">
     <MostUsedResourcesCard
       resources={[
         { title: 'How to lead new teams', url: '/resources/lead-teams', trending: null },
