@@ -50,20 +50,19 @@
 </script>
 
 <!-- Header Controls -->
-<div class="mb-10 flex items-center justify-between">
-  <div class="flex flex-grow items-center gap-6 border-b border-gray-300">
+<div class="mb-10 flex flex-wrap items-center justify-between gap-4">
+  <div class="flex min-w-0 flex-grow items-center gap-6 border-b border-gray-300">
     <!-- Tabs -->
     <Tabs {tabs} {activeTab} onTabClick={handleTabClick} />
   </div>
 
-  <div class="flex items-center gap-3">
-    <!-- Search Input -->
-    <div class="relative ml-4 w-full max-w-xs">
+  <div class="flex w-full min-w-[220px] flex-col items-center gap-3 sm:w-auto sm:flex-row">
+    <div class="relative w-full max-w-xs">
       <Input type="text" placeholder="Field" icon="iconamoon:search" bind:value={searchValue} />
     </div>
-
-    <!-- Upload Button -->
-    <Button onclick={handleUpload} class="bg-orange-500 hover:bg-orange-600">Upload</Button>
+    <Button onclick={handleUpload} class="w-full bg-orange-500 hover:bg-orange-600 sm:w-auto"
+      >Upload</Button
+    >
   </div>
 </div>
 
