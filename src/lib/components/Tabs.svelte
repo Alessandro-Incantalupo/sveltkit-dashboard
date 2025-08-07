@@ -12,7 +12,7 @@
   }>();
 </script>
 
-<div class="flex flex-grow items-center gap-6 border-b border-gray-300">
+<div class="flex flex-grow items-center gap-6 border-b border-gray-300 md:border-none">
   <nav class="flex space-x-6 md:space-x-8">
     {#each tabs as tab}
       <button

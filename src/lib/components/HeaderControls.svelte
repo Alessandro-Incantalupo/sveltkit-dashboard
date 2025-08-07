@@ -56,7 +56,7 @@
     </div>
 
     <!-- Tabs Row - Fixed container with proper overflow handling -->
-    <div class="overflow-x-auto border-b border-gray-300">
+    <div class="overflow-x-auto">
       <div class="min-w-max">
         <Tabs {tabs} {activeTab} onTabClick={handleTabClick} />
       </div>
@@ -66,7 +66,7 @@
   <!-- Desktop: Horizontal layout -->
   <div class="hidden lg:flex lg:items-center lg:justify-between lg:gap-6">
     <!-- Left: Tabs -->
-    <div class="flex min-w-0 flex-1 overflow-x-auto border-b border-gray-300">
+    <div class="flex min-w-0 flex-1 overflow-x-auto border-b">
       <div class="min-w-max">
         <Tabs {tabs} {activeTab} onTabClick={handleTabClick} />
       </div>
