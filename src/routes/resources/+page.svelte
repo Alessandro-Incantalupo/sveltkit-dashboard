@@ -5,10 +5,12 @@
   import Calendar from '$lib/components/Calendar.svelte';
   import CardSection from '$lib/components/card-section/CardSection.svelte';
   import Select from '$lib/components/Select.svelte';
+  import SelectForm from '$lib/components/SelectForm.svelte';
   import Table from '$lib/components/Table.svelte';
   import TableUsers from '$lib/components/TableUsers.svelte';
   import Tabs from '$lib/components/Tabs.svelte';
   import { Button } from '$lib/components/ui/button';
+  import * as Dialog from '$lib/components/ui/dialog/index.js';
   import { Input } from '$lib/components/ui/input';
   import { toast } from 'svelte-sonner';
 
@@ -18,6 +20,44 @@
   let activeTab = $state('All');
   let searchValue = $state('');
   let selectedProvider = $state('');
+
+  let uploadDialogOpen = $state(false);
+  let uploadTitle = $state('');
+  let uploadFile = $state(null);
+  let uploadProvider = $state('');
+  let uploadType = $state('');
+  let uploadDescription = $state('');
+  let uploadCategory = $state('');
+  let uploadLanguage = $state('');
+  let uploadRole = $state('');
+
+  // Options for different selects
+  const categoryOptions = [
+    { label: 'Video', value: 'video' },
+    { label: 'Document', value: 'document' },
+    { label: 'Lesson', value: 'lesson' },
+    { label: 'Tutorial', value: 'tutorial' }
+  ];
+
+  const languageOptions = [
+    { label: 'English', value: 'english' },
+    { label: 'Spanish', value: 'spanish' },
+    { label: 'French', value: 'french' },
+    { label: 'German', value: 'german' }
+  ];
+
+  const providerOptions = [
+    { label: 'Pack', value: 'pack' },
+    { label: 'Mentor', value: 'mentor' },
+    { label: 'External', value: 'external' },
+    { label: 'Internal', value: 'internal' },
+    { label: 'Partner', value: 'partner' }
+  ];
+
+  const roleOptions = [
+    { label: 'Mentor / Coach', value: 'mentor' },
+    { label: 'Mentee / Coachee', value: 'mentee' }
+  ];
 
   const tabs = [
     { name: 'Stats', icon: 'ion:stats-chart-outline', active: false },
@@ -33,21 +73,93 @@
   function handleTabClick(tabName: string) {
     activeTab = tabName;
   }
-
-  function handleUpload() {
-    toast.success('Resource Uploaded Successfully!', {
-      duration: 3000,
-      position: 'top-center'
-    });
-  }
-
   function handleDownload() {
     toast.success('Download started!', {
       duration: 3000,
       position: 'top-center'
     });
   }
+
+  function handleUpload() {
+    uploadDialogOpen = true;
+  }
+
+  function handleSubmitUpload() {
+    toast.success('Resource Uploaded Successfully!', {
+      duration: 3000,
+      position: 'top-center'
+    });
+
+    uploadTitle = '';
+    uploadFile = null;
+    uploadProvider = '';
+    uploadType = '';
+    uploadDialogOpen = false;
+    uploadDescription = '';
+    uploadCategory = '';
+    uploadLanguage = '';
+    uploadRole = '';
+  }
 </script>
+
+<!-- Upload Dialog -->
+<Dialog.Root bind:open={uploadDialogOpen}>
+  <Dialog.Content class="sm:max-w-[500px]">
+    <Dialog.Header>
+      <Dialog.Title>Upload Resource</Dialog.Title>
+    </Dialog.Header>
+    <div class="grid gap-4 py-4">
+      <Input id="title" bind:value={uploadTitle} placeholder="Title*" />
+      <Input id="description" bind:value={uploadDescription} placeholder="Description*" />
+
+      <SelectForm
+        bind:value={uploadCategory}
+        options={categoryOptions}
+        placeholder="Category*"
+        label="Categories"
+        name="category"
+        class="w-full"
+      />
+
+      <SelectForm
+        bind:value={uploadLanguage}
+        options={languageOptions}
+        placeholder="Language*"
+        label="Languages"
+        name="language"
+        class="w-full"
+      />
+
+      <SelectForm
+        bind:value={uploadProvider}
+        options={providerOptions}
+        placeholder="Provider*"
+        label="Providers"
+        name="provider"
+        class="w-full"
+      />
+
+      <SelectForm
+        bind:value={uploadRole}
+        options={roleOptions}
+        placeholder="Role"
+        label="Roles"
+        name="role"
+        class="w-full"
+      />
+
+      <div class="flex gap-3">
+        <Input id="file" type="file" placeholder="No file selected*" class="flex-1" />
+        <Button variant="outline" class="whitespace-nowrap">Select file</Button>
+      </div>
+    </div>
+    <Dialog.Footer>
+      <Button type="submit" onclick={handleSubmitUpload} class="bg-orange-500 hover:bg-orange-600"
+        >Upload</Button
+      >
+    </Dialog.Footer>
+  </Dialog.Content>
+</Dialog.Root>
 
 <!-- Header Controls -->
 <div class="mb-10 space-y-4">
