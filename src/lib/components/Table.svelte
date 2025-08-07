@@ -1,36 +1,45 @@
-<!-- filepath: src/lib/components/Table.svelte -->
 <script lang="ts">
-  export let data: Array<{
-    title: string;
-    path: string;
-    views: number;
-    uploadedBy: string;
-    provider: string;
-    type: string;
-  }>;
+  import Icon from '@iconify/svelte';
+  import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
+
+  const { data = [], heads = [] } = $props<{ data?: any[]; heads?: string[] }>();
 </script>
 
-<table class="w-full border-collapse border border-gray-200">
-  <thead>
-    <tr class="bg-gray-50">
-      <th class="border px-4 py-2 text-left">Content Title</th>
-      <th class="border px-4 py-2 text-left">Path</th>
-      <th class="border px-4 py-2 text-left">View Count</th>
-      <th class="border px-4 py-2 text-left">Uploaded By</th>
-      <th class="border px-4 py-2 text-left">Provider</th>
-      <th class="border px-4 py-2 text-left">Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    {#each data as row}
-      <tr class="hover:bg-gray-100">
-        <td class="border px-4 py-2">{row.title}</td>
-        <td class="border px-4 py-2">{row.path}</td>
-        <td class="border px-4 py-2">{row.views}</td>
-        <td class="border px-4 py-2">{row.uploadedBy}</td>
-        <td class="border px-4 py-2">{row.provider}</td>
-        <td class="border px-4 py-2">{row.type}</td>
-      </tr>
+<Table class="overflow-hidden rounded-lg border shadow-sm">
+  <TableHeader>
+    <TableRow>
+      {#each heads as head, i}
+        <TableHead>
+          {head}
+          {#if i === 0}
+            <Icon icon="mdi:arrow-down" class="ml-2 inline-block h-4 w-4" />
+          {/if}
+        </TableHead>
+      {/each}
+      <TableHead></TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {#each data as item}
+      <TableRow class="hover:bg-gray-50">
+        <TableCell class="font-medium">{item.contentTitle}</TableCell>
+        <TableCell class="text-gray-600">{item.path}</TableCell>
+        <TableCell>{item.viewCount}</TableCell>
+        <TableCell>{item.uploadedBy}</TableCell>
+        <TableCell>
+          <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+            {item.provider}
+          </span>
+        </TableCell>
+        <TableCell>
+          <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+            {item.type}
+          </span>
+        </TableCell>
+        <TableCell>
+          <button class="hover:text-blue-700 hover:underline"> ... </button>
+        </TableCell>
+      </TableRow>
     {/each}
-  </tbody>
-</table>
+  </TableBody>
+</Table>
