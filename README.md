@@ -16,6 +16,12 @@ docker build -t pack-dashboard .
 docker run -p 3000:3000 pack-dashboard
 ```
 
+## Run with pnpm
+
+```bash
+pnpm dev
+```
+
 The application will be available at `http://localhost:3000`
 
 ## 🛠️ Technology Stack
@@ -121,3 +127,17 @@ src/
 ├── routes/                 # SvelteKit file-based routing
 └── app.html               # HTML template
 ```
+
+## What would I improve
+
+**Toast Notifications (svelte-sonner)**
+
+- Originally positioned on tabs
+- Currently positioned above tabs
+
+**Data Tables**
+
+- Basic sorting implemented with visual indicators
+- **Missing**: Pagination for large datasets
+- **Improvement**: Add pagination with "Previous/Next" controls and result counters
+- **Rationale**: Essential for performance and usability with real-world data volumes

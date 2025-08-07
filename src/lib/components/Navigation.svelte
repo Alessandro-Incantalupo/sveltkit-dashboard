@@ -13,14 +13,15 @@
     { label: 'Events', href: '/events' }
   ];
 
-  const navItemsWithActive = $derived(
-    navItems.map(item => ({
-      ...item,
-      active: item.href === page.url.pathname
-    }))
-  );
+  // More efficient: just get the current path
+  const currentPath = $derived(page.url.pathname);
 
   let isMobileMenuOpen = $state(false);
+
+  // Helper function for checking active state
+  function isActive(href: string): boolean {
+    return currentPath === href;
+  }
 </script>
 
 <nav class="border-b border-sidebar-border bg-sidebar text-sidebar-foreground">
@@ -39,14 +40,16 @@
 
     <!-- Links Section -->
     <div class="flex space-x-4">
-      {#each navItemsWithActive as item}
+      {#each navItems as item}
+        {@const active = isActive(item.href)}
         <div class="flex h-full items-center">
           <a
             href={item.href}
-            class="border-b-4 px-4 py-4 transition-colors hover:text-sidebar-primary"
-            class:active={item.active}
-            class:border-orange-500={item.active}
-            class:border-transparent={!item.active}
+            class="border-b-4 px-4 py-4 transition-colors"
+            class:text-orange-500={active}
+            class:font-medium={active}
+            class:border-orange-500={active}
+            class:border-transparent={!active}
           >
             {item.label}
           </a>
@@ -54,6 +57,7 @@
       {/each}
     </div>
 
+    <!-- ...rest of your component -->
     <!-- User Section -->
     <div class="flex items-center space-x-4">
       <!-- Country Flag -->
@@ -114,13 +118,14 @@
         class="border-t border-sidebar-border bg-sidebar-accent/50 px-4 py-2 transition-all duration-200"
         role="menu"
       >
-        {#each navItemsWithActive as item}
+        {#each navItems as item}
+          {@const active = isActive(item.href)}
           <a
             href={item.href}
             onclick={() => (isMobileMenuOpen = false)}
             class="block rounded-md px-4 py-3 transition-colors hover:bg-sidebar-accent"
-            class:text-orange-500={item.active}
-            class:border-orange-500={item.active}
+            class:text-orange-500={active}
+            class:border-orange-500={active}
             role="menuitem"
           >
             {item.label}
