@@ -16,7 +16,7 @@ docker build -t pack-dashboard .
 docker run -p 3000:3000 pack-dashboard
 ```
 
-## Run with pnpm
+### Run with pnpm (if need be)
 
 ```bash
 pnpm dev
