@@ -6,7 +6,17 @@
   };
   import * as Card from '$lib/components/ui/card/index.js';
   import Icon from '@iconify/svelte';
+  import { toast } from 'svelte-sonner';
+
   const { resources = [] } = $props<{ resources?: Resource[] }>();
+
+  function handleResourceClick(event: MouseEvent, resourceTitle: string) {
+    event.preventDefault();
+    toast.info(`"Work in progress"`, {
+      description: 'This feature will be available soon!',
+      duration: 3000
+    });
+  }
 </script>
 
 <Card.Root class="flex w-full gap-1 p-4">
@@ -15,8 +25,9 @@
     {#each resources as resource}
       <li class="flex items-center justify-between">
         <a
-          href={resource.url}
+          href="javascript:void(0)"
           class=" flex items-center gap-2 text-lg font-medium underline hover:underline"
+          onclick={event => handleResourceClick(event, resource.title)}
         >
           {resource.title}
         </a>
