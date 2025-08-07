@@ -119,4 +119,14 @@
     <h2 class="mb-4 text-2xl font-semibold">User Content Access</h2>
   </div>
   <UserContentControls bind:selectedProvider {dataUsers} {headsUsers} onDownload={handleDownload} />
+{:else}
+  <div
+    class="flex h-64 items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50"
+  >
+    <div class="text-center">
+      <div class="mb-4 text-4xl">🚧</div>
+      <h3 class="mb-2 text-lg font-medium text-gray-900">Coming Soon!</h3>
+      <p class="text-gray-500">{activeTab} content is under construction</p>
+    </div>
+  </div>
 {/if}
