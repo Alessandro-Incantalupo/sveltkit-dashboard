@@ -6,6 +6,13 @@
   import { DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date';
   import CalendarIcon from '@lucide/svelte/icons/calendar';
 
+  interface Props {
+    placeholder?: string;
+    class?: string;
+  }
+
+  let { placeholder = 'Pick a date', class: className, ...restProps }: Props = $props();
+
   const df = new DateFormatter('it-IT', {
     dateStyle: 'long'
   });
@@ -19,12 +26,13 @@
     class={cn(
       buttonVariants({
         variant: 'outline',
-        class: 'w-[280px] basis-1/3 justify-between text-left font-normal'
+        class: 'w-full justify-between text-left font-normal md:w-[280px] md:basis-1/3'
       }),
-      !value && 'text-muted-foreground'
+      !value && 'text-muted-foreground',
+      className
     )}
   >
-    {value ? df.format(value.toDate(getLocalTimeZone())) : 'Pick a date'}
+    {value ? df.format(value.toDate(getLocalTimeZone())) : placeholder}
     <CalendarIcon />
   </Popover.Trigger>
   <Popover.Content bind:ref={contentRef} class="w-auto p-0">

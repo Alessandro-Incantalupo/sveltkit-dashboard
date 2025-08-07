@@ -112,17 +112,38 @@
     <h2 class="mb-4 text-2xl font-semibold">User Content Access</h2>
   </div>
   <div class="flex flex-col gap-8">
-    <div class="flex items-center gap-3">
+    <!-- Mobile: Stack everything vertically -->
+    <div class="block lg:hidden">
+      <div class="flex flex-col gap-4">
+        <!-- Select Component -->
+        <Select bind:value={selectedProvider} class="w-full" />
+
+        <!-- Calendar Components -->
+        <Calendar />
+        <Calendar />
+
+        <!-- Download Button -->
+        <Button onclick={handleDownload} class="w-full bg-orange-500 hover:bg-orange-600">
+          Download
+        </Button>
+      </div>
+    </div>
+
+    <!-- Desktop: Horizontal layout with basis -->
+    <div class="hidden lg:flex lg:items-center lg:gap-3">
       <!-- Select Component -->
-      <Select bind:value={selectedProvider} class="w-[180px] basis-1/3" />
+      <Select bind:value={selectedProvider} class="basis-1/3" />
 
       <!-- Calendar Components -->
-      <Calendar />
-      <Calendar />
+      <Calendar placeholder="From" />
+      <Calendar placeholder="To" />
 
       <!-- Download Button -->
-      <Button onclick={handleDownload} class="bg-orange-500 hover:bg-orange-600">Download</Button>
+      <Button onclick={handleDownload} class=" bg-orange-500 whitespace-nowrap hover:bg-orange-600">
+        Download
+      </Button>
     </div>
+
     <TableUsers data={dataUsers} heads={headsUsers} />
   </div>
 {/if}
