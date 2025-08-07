@@ -13,7 +13,7 @@
 </script>
 
 <div class="flex flex-grow items-center gap-6 border-b border-gray-300">
-  <nav class="flex space-x-8">
+  <nav class="flex space-x-6 md:space-x-8">
     {#each tabs as tab}
       <button
         class="flex items-center justify-center border-b-2 pb-2 text-sm font-medium transition-colors {activeTab ===
