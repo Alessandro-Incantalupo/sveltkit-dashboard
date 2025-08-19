@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Calendar from '$lib/components/Calendar.svelte';
-  import Select from '$lib/components/Select.svelte';
-  import TableUsers from '$lib/components/TableUsers.svelte';
+  import Calendar from '$lib/components/common/Calendar.svelte';
+  import Select from '$lib/components/common/Select.svelte';
+  import TableUsers from '$lib/components/tables/TableUsers.svelte';
   import { Button } from '$lib/components/ui/button';
 
   interface Props {

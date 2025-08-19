@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SelectForm from '$lib/components/SelectForm.svelte';
+  import SelectForm from '$lib/components/forms/SelectForm.svelte';
   import { Button } from '$lib/components/ui/button';
   import * as Dialog from '$lib/components/ui/dialog/index.js';
   import { Input } from '$lib/components/ui/input';

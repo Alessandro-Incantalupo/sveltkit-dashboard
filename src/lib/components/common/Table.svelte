@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
-  import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
+  import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 
   const { data = [], heads = [] } = $props<{ data?: any[]; heads?: string[] }>();
 </script>

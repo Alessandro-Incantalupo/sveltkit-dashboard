@@ -1,9 +1,9 @@
 <script lang="ts">
   import CardSection from '$lib/components/card-section/CardSection.svelte';
-  import HeaderControls from '$lib/components/HeaderControls.svelte';
-  import Table from '$lib/components/Table.svelte';
-  import UploadDialog from '$lib/components/UploadDialog.svelte';
-  import UserContentControls from '$lib/components/UserContentControls.svelte';
+  import Table from '$lib/components/common/Table.svelte';
+  import UserContentControls from '$lib/components/forms/UserContentControls.svelte';
+  import UploadDialog from '$lib/components/modals/UploadDialog.svelte';
+  import HeaderControls from '$lib/components/tables/HeaderControls.svelte';
   import resources from '$lib/data/resources.json';
   import userContentAccess from '$lib/data/user-content-access.json';
   import { toast } from 'svelte-sonner';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tabs from '$lib/components/Tabs.svelte';
+  import Tabs from '$lib/components/common/Tabs.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Input } from '$lib/components/ui/input';
 

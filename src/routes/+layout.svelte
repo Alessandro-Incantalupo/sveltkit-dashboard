@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Navigation from '$lib/components/Navigation.svelte';
+  import Navigation from '$lib/components/layouts/Navigation.svelte';
   import Icon from '@iconify/svelte';
   import { Toaster } from 'svelte-sonner';
   import '../app.css';
